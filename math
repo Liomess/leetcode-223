@@ -1,0 +1,24 @@
+class Solution:
+    def computeArea(self, ax1: int, ay1: int, ax2: int, ay2: int, bx1: int, by1: int, bx2: int, by2: int) -> int:
+        
+        l=0
+        b=0
+
+        if ((bx1>=ax1) and (bx2<=ax2)) or ((bx1<=ax1) and (bx2>=ax2)):
+            b=min(abs(bx2-bx1),abs(ax2-ax1))
+        elif (bx1>=ax1) and (bx1<=ax2):
+            b=abs(ax2-bx1)
+        elif (bx2>=ax1) and (bx2<=ax2):
+            b=abs(bx2-ax1)
+        if ((by1>=ay1) and (by2<=ay2)) or ((by1<=ay1) and (by2>=ay2)):
+            l=min(abs(by2-by1),abs(ay2-ay1))
+        elif (by1>=ay1) and (by1<=ay2):
+            l=abs(ay2-by1)
+        elif (by2>=ay1) and (by2<=ay2):
+            l=abs(by2-ay1)
+        cover=l*b
+        ar1=abs(ax2-ax1)*abs(ay2-ay1)
+        ar2=abs(bx2-bx1)*abs(by2-by1)
+        
+        return ar1+ar2-cover
+        
